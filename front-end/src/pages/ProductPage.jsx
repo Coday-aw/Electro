@@ -11,7 +11,7 @@ function ProductPage() {
   }, []);
 
   const { products, error, loading } = useSelector(
-    (state) => state.productList
+    (state) => state.productsList
   );
 
   if (loading) {

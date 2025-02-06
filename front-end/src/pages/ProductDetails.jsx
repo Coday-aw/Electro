@@ -13,7 +13,7 @@ function ProductDetails() {
 
   const { productId } = useParams();
 
-  const dispach = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getProduct = async () => {
@@ -32,10 +32,6 @@ function ProductDetails() {
     };
     getProduct();
   }, []);
-
-  const handleClick = () => {
-    dispach(addToCart(product));
-  };
 
   return (
     <div className="max-w-[1000px] mx-auto">
@@ -61,11 +57,12 @@ function ProductDetails() {
             <p className="font-bold text-2xl ">{product.name}</p>
             <p>{product.description}</p>
             <p>Price: {product.price}:-</p>
-            <Button onClick={handleClick}>
-              {" "}
-              <FaCartPlus />
-              Add to cart
-            </Button>
+            <button
+              onClick={() => dispatch(addToCart(product))}
+              className="bg-blue-500 text-white p-2 rounded-lg flex items-center justify-center gap-2"
+            >
+              add product
+            </button>
           </div>
         </div>
       )}
