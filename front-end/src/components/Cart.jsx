@@ -5,12 +5,17 @@ import {
   removeItem,
   clearCart,
   LOAD_SAVED_CART,
+  addToCart,
 } from "../store/features/shoppingCart/ShoppingCartSlice";
 import Button from "./Button";
 import { useEffect } from "react";
+import CartItem from "./CartItem";
+import { Link } from "react-router-dom";
+import { useAuth } from "./AuthContext";
 
-const Cart = () => {
+const Cart = ({ CheckOutPage }) => {
   const dispatch = useDispatch();
+  const { token } = useAuth();
   const { cart, totalPrice, totalQuantity } = useSelector(
     (state) => state.shoppingCart
   );
@@ -22,17 +27,9 @@ const Cart = () => {
     }
   }, [dispatch]);
 
-  const handleRemoveOne = (productId) => {
-    dispatch(removeOne(productId));
-  };
-
-  const handleRemoveItem = (productId) => {
-    dispatch(removeItem(productId));
-  };
-
-  const handleClearCart = () => {
-    dispatch(clearCart());
-  };
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   return (
     <div className="">
@@ -41,27 +38,22 @@ const Cart = () => {
       ) : (
         <div>
           {cart.map((product) => (
-            <div
-              key={product.product.id}
-              className="flex  justify-center items-center gap-5 py-2"
-            >
-              <img
-                className="w-20 h-20 mb-2"
-                src={product.product.images[0]}
-                alt="image"
-              />
-              <div>
-                <p className="font-bold mb-1">{product.product.name}</p>
-                <p className="text-red-500">{product.product.price}:-</p>
-              </div>
-            </div>
+            <CartItem product={product} key={product.product._id} />
           ))}
-          <button
-            onClick={handleClearCart}
-            className="bg-red-500 text-white p-2 rounded-lg mb-3 w-full"
-          >
-            Clear Cart
-          </button>
+
+          {token ? (
+            <Link to="/auth/Checkout">
+              <button className="bg-blue-500 text-white p-2 rounded-lg mb-3 mt-5 w-full">
+                Check out
+              </button>
+            </Link>
+          ) : (
+            <Link to="/auth/login">
+              <button className="bg-blue-500 text-white p-2 rounded-lg mb-3 mt-5 w-full">
+                Log in to order
+              </button>
+            </Link>
+          )}
 
           <p className="border-t p-2">Total Price: {totalPrice}:-</p>
         </div>

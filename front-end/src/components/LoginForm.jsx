@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import { useAuth } from "./AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 
 const LoginForm = () => {
@@ -9,6 +9,7 @@ const LoginForm = () => {
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
   const { login } = useAuth();
   const handleChange = (e) => {
     setFormData({
@@ -29,6 +30,9 @@ const LoginForm = () => {
     const { error } = await login(formData);
     if (error) {
       toast.error(error);
+    } else {
+      toast.success("Logged in successfully");
+      navigate("/");
     }
   };
 

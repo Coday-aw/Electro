@@ -52,11 +52,14 @@ export const AuthProvider = ({ children }) => {
 
       const data = await res.json();
       console.log(res, data);
-      if (res.status !== 200) {
-        return { error: data.message };
+
+      if (!res.ok) {
+        return { error: data.message || "An error occurred during login." };
       }
+
       setToken(data.token);
       localStorage.setItem("token", data.token);
+      return { success: true };
     } catch (error) {
       console.log(error);
       return { error: "An error occurred during login." };

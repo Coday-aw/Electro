@@ -10,7 +10,7 @@ export const links = [
   },
   {
     title: "products",
-    href: "/product",
+    href: "/products",
   },
   {
     title: "About",
@@ -26,14 +26,17 @@ export const productsCategories = [
   {
     title: "Laptops",
     icon: IoIosLaptop,
+    href: "/products",
   },
   {
     title: "Phones",
     icon: IoIosPhonePortrait,
+    href: "/products",
   },
   {
     title: "TVs",
     icon: FaTv,
+    href: "/products",
   },
   {
     title: "Vacuum Cleaners",

@@ -12,6 +12,7 @@ import AboutUs from "./pages/AboutUs.jsx";
 import AuthLayout from "./layouts/AuthLayout.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
+import CheckoutPage from "./pages/CheckOutPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
         element: <PublicLayout />,
         children: [
           { index: true, element: <HomePage /> },
-          { path: "/product", element: <ProductPage /> },
+          { path: "/products", element: <ProductPage /> },
           { path: "details/:productId", element: <ProductDetails /> },
           { path: "/contact", element: <ContactPage /> },
           { path: "/aboutUs", element: <AboutUs /> },
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
         children: [
           { path: "login", element: <LoginPage /> },
           { path: "register", element: <RegisterPage /> },
+          { path: "Checkout", element: <CheckoutPage /> },
         ],
       },
     ],

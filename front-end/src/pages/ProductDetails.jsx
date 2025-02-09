@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Button from "../components/Button";
-import { FaCartPlus } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/features/shoppingCart/ShoppingCartSlice";
-
+import toast, { Toaster } from "react-hot-toast";
 function ProductDetails() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -33,8 +31,14 @@ function ProductDetails() {
     getProduct();
   }, []);
 
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+    toast.success("Product added to cart");
+  };
+
   return (
     <div className="max-w-[1000px] mx-auto">
+      <Toaster position="top-center" />
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
       {product && (
@@ -58,10 +62,10 @@ function ProductDetails() {
             <p>{product.description}</p>
             <p>Price: {product.price}:-</p>
             <button
-              onClick={() => dispatch(addToCart(product))}
+              onClick={handleAddToCart}
               className="bg-blue-500 text-white p-2 rounded-lg flex items-center justify-center gap-2"
             >
-              add product
+              Add to cart
             </button>
           </div>
         </div>
