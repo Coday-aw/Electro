@@ -13,6 +13,7 @@ import AuthLayout from "./layouts/AuthLayout.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import CheckoutPage from "./pages/CheckOutPage.jsx";
+import OrdersPage from "./pages/OrdersPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
           { path: "login", element: <LoginPage /> },
           { path: "register", element: <RegisterPage /> },
           { path: "Checkout", element: <CheckoutPage /> },
+          { path: "orders", element: <OrdersPage /> },
         ],
       },
     ],
