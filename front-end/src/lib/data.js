@@ -2,6 +2,9 @@ import { FaTv } from "react-icons/fa";
 import { IoIosPhonePortrait } from "react-icons/io";
 import { IoIosLaptop } from "react-icons/io";
 import { GiVacuumCleaner } from "react-icons/gi";
+import { FaHome } from "react-icons/fa";
+import { FaPhoneSquareAlt } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 export const links = [
   {
@@ -9,7 +12,7 @@ export const links = [
     href: "/",
   },
   {
-    title: "products",
+    title: "Products",
     href: "/products",
   },
   {
@@ -41,5 +44,23 @@ export const productsCategories = [
   {
     title: "Vacuum Cleaners",
     icon: GiVacuumCleaner,
+  },
+];
+
+export const contacts = [
+  {
+    title: "Address",
+    icon: FaHome,
+    content: "Frihetsvägen 36, Stockholm",
+  },
+  {
+    title: "Phone",
+    icon: FaPhoneSquareAlt,
+    content: "+46 700 72 7039",
+  },
+  {
+    title: "Email",
+    icon: MdEmail,
+    content: "Electro@support.com",
   },
 ];

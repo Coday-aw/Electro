@@ -5,7 +5,7 @@ import productRouter from "./routes/productRouter.js";
 import userRouter from "./routes/userRouter.js";
 import orderRouter from "./routes/oderRouter.js";
 import feedbackRouter from "./routes/feedbackRouter.js";
-
+import messageRouter from "./routes/messageRouter.js";
 dbConnect();
 
 const app = express();
@@ -24,5 +24,6 @@ app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/feedback", feedbackRouter);
+app.use("/api/message", messageRouter);
 
 export default app;

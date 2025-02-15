@@ -42,13 +42,13 @@ function ProductDetails() {
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
       {product && (
-        <div className=" flex  p-10 sm:flex-col md:flex-row gap-10">
+        <div className=" flex  p-10 flex-col md:flex-row gap-10">
           <div className="flex-1">
             <img src={product.images[activeImg]} alt={product.name} />
             <div className="flex gap-2 justify-center">
               {product.images.map((img, index) => (
                 <img
-                  className=" w-[100px] h-[100px] cursor-pointer border rounded-lg"
+                  className=" w-20 h-20 md:w-[100px] md:h-[100px] cursor-pointer border rounded-lg"
                   key={index}
                   src={img}
                   alt={product.name}

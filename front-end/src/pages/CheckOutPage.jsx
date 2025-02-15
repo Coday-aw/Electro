@@ -82,9 +82,9 @@ function CheckOutPage() {
           <div>cart empty!</div>
         )
       ) : (
-        <div className="flex flex-col gap-5 p-20 md:flex-row shadow-lg border rounded-lg  mt-64 ">
+        <div className="flex flex-col gap-5 p-20 md:flex-row shadow-lg border rounded-lg  mt-10  ">
           <div>
-            <p className="font-bold text-2xl mb-2">Your order summary!</p>
+            <p className="font-bold text-2xl mb-2">Cart summary</p>
             {cart &&
               cart.map((product) => (
                 <CartItem product={product} key={product.product._id} />

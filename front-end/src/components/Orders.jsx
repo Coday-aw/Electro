@@ -42,7 +42,7 @@ const Orders = () => {
   }, [token]);
   return (
     <div>
-      <p className="text-2xl font-medium text-center">Order summary</p>
+      <p className="text-2xl font-medium text-center mt-40">Order summary</p>
       {orders.length === 0 ? (
         <p>No orders found.</p>
       ) : (

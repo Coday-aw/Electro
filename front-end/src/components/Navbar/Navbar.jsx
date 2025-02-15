@@ -3,7 +3,6 @@ import { links } from "../../lib/data";
 import BurgerMenu from "./BurgerMenu";
 import { Link } from "react-router-dom";
 import { useAuth } from "../AuthContext";
-import { FaRegUserCircle } from "react-icons/fa";
 import { useState } from "react";
 import Cart from "../Cart";
 import Modal from "../Modal";
@@ -14,19 +13,11 @@ import { BsCart2 } from "react-icons/bs";
 
 const Navbar = () => {
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
-  const [isUserMenuModalOpen, setIsUserMenuModalOpen] = useState(false);
-  const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
   const { token } = useAuth();
   const { totalQuantity } = useSelector((state) => state.shoppingCart);
 
   const openCartModal = () => setIsCartModalOpen(true);
   const closeCartModal = () => setIsCartModalOpen(false);
-
-  const openUserMenuModal = () => setIsUserMenuModalOpen(true);
-  const closeUserMenuModal = () => setIsUserMenuModalOpen(false);
-
-  const openBurgerMenu = () => setIsBurgerMenuOpen(true);
-  const closeBurgerMenu = () => setIsBurgerMenuOpen(false);
 
   return (
     <nav className="flex justify-between items-center md:px-5 px-2 py-4 border-b sticky top-0 bg-white z-50">
@@ -55,30 +46,13 @@ const Navbar = () => {
               size={25}
             />
             <Modal isOpen={isCartModalOpen} closeModal={closeCartModal}>
-              <div className="w-64 right-10 top-12">
-                <Cart />
-              </div>
+              <Cart />
             </Modal>
           </div>
-          {token ? (
-            <div>
-              <FaRegUserCircle onClick={openUserMenuModal} size={25} />
-              <Modal
-                isOpen={isUserMenuModalOpen}
-                closeModal={closeUserMenuModal}
-              >
-                <div className="">
-                  <UserMenu />
-                </div>
-              </Modal>
-            </div>
-          ) : (
-            <Link to="/auth/login">
-              <FaRegUserCircle size={25} />
-            </Link>
-          )}
+          <UserMenu />
         </div>
       </div>
+      <BurgerMenu />
     </nav>
   );
 };

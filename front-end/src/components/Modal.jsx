@@ -8,7 +8,7 @@ function Modal({ isOpen, closeModal, children }) {
       onClick={closeModal}
     >
       <div
-        className="bg-white p-5 rounded-lg] h-auto w-auto  right-10 top-12 absolute z-50 rounded-lg shadow-lg border"
+        className="bg-white p-5 rounded-lg] h-auto  w-[300px]  max-h-96 overflow-y-auto right-16 top-14 absolute z-50 rounded-lg shadow-lg border"
         onClick={(e) => e.stopPropagation()}
       >
         {children}
