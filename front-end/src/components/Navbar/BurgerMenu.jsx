@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { TiThMenu } from "react-icons/ti";
-import { links } from "../../lib/data";
+import { BurgerMenuLinks } from "../../lib/data";
 import { Link } from "react-router-dom";
 import { RxCross2 } from "react-icons/rx";
 
@@ -48,8 +48,8 @@ const BurgerMenu = () => {
                 className=" cursor-pointer bg-red-500 rounded-lg"
               />
             </div>
-            {links &&
-              links.map((link) => (
+            {BurgerMenuLinks &&
+              BurgerMenuLinks.map((link) => (
                 <li
                   className=" cursor-pointer mb-2 hover:bg-gray-200 p-1 hover:text-yellow-500 text-xl "
                   key={link.title}

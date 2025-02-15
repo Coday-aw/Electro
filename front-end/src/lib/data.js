@@ -25,6 +25,29 @@ export const links = [
   },
 ];
 
+export const BurgerMenuLinks = [
+  {
+    title: "Home",
+    href: "/",
+  },
+  {
+    title: "Products",
+    href: "/products",
+  },
+  {
+    title: "About",
+    href: "/aboutUs",
+  },
+  {
+    title: "Contact",
+    href: "/contact",
+  },
+  {
+    title: "Orders",
+    href: "/auth/orders",
+  },
+];
+
 export const productsCategories = [
   {
     title: "Laptops",
@@ -44,6 +67,7 @@ export const productsCategories = [
   {
     title: "Vacuum Cleaners",
     icon: GiVacuumCleaner,
+    href: "/products",
   },
 ];
 

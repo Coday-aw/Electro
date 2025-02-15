@@ -42,30 +42,34 @@ const Orders = () => {
   }, [token]);
   return (
     <div>
-      <p className="text-2xl font-medium text-center mt-40">Order summary</p>
       {orders.length === 0 ? (
-        <p>No orders found.</p>
+        <p className="text-center mt-40 text-xl">No orders found</p>
       ) : (
-        orders.map((order) => (
-          <div key={order._id} className=" p-4 mb-4 border-b">
-            <p className="font-bold mb-2">Order ID: {order._id}</p>
-            {order.products.map((item) => (
-              <div key={item._id} className=" flex gap-2 mb-2">
-                <img
-                  src={products[item.product]?.images[0]}
-                  className="h-20 w-20 border rounded-lg p-1"
-                  alt="product image"
-                />
-                <div>
-                  <p className="font-bold mb-1">
-                    {products[item.product]?.name || "Loading..."}
-                  </p>
-                  <p>{products[item.product]?.price}kr</p>
+        <div>
+          <p className="text-2xl font-medium text-center mt-40">
+            Order summary
+          </p>
+          {orders.map((order) => (
+            <div key={order._id} className=" p-4 mb-4 border-b">
+              <p className="font-bold mb-2">Order ID: {order._id}</p>
+              {order.products.map((item) => (
+                <div key={item._id} className=" flex gap-2 mb-2">
+                  <img
+                    src={products[item.product]?.images[0]}
+                    className="h-20 w-20 border rounded-lg p-1"
+                    alt="product image"
+                  />
+                  <div>
+                    <p className="font-bold mb-1">
+                      {products[item.product]?.name || "Loading..."}
+                    </p>
+                    <p>{products[item.product]?.price}kr</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        ))
+              ))}
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
