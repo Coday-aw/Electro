@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/features/shoppingCart/ShoppingCartSlice";
 import toast, { Toaster } from "react-hot-toast";
+import ProductSlider from "../components/ProductSlider";
 function ProductDetails() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -70,6 +71,7 @@ function ProductDetails() {
           </div>
         </div>
       )}
+      <ProductSlider />
     </div>
   );
 }

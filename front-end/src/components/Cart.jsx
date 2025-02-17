@@ -1,24 +1,13 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  removeOne,
-  removeItem,
-  clearCart,
-  LOAD_SAVED_CART,
-  addToCart,
-} from "../store/features/shoppingCart/ShoppingCartSlice";
-import Button from "./Button";
+import { LOAD_SAVED_CART } from "../store/features/shoppingCart/ShoppingCartSlice";
 import { useEffect } from "react";
 import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
-import { useAuth } from "./AuthContext";
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const { token } = useAuth();
-  const { cart, totalPrice, totalQuantity } = useSelector(
-    (state) => state.shoppingCart
-  );
+  const { cart, totalPrice } = useSelector((state) => state.shoppingCart);
 
   useEffect(() => {
     const getSavedCart = localStorage.getItem("cart");
@@ -41,19 +30,11 @@ const Cart = () => {
             <CartItem product={product} key={product.product._id} />
           ))}
 
-          {token ? (
-            <Link to="/auth/Checkout">
-              <button className="bg-blue-500 text-white p-2 rounded-lg mb-3 mt-5 w-full">
-                Check out
-              </button>
-            </Link>
-          ) : (
-            <Link to="/auth/login">
-              <button className="bg-blue-500 text-white p-2 rounded-lg mb-3 mt-5 w-full">
-                Log in to order
-              </button>
-            </Link>
-          )}
+          <Link to="/auth/Checkout">
+            <button className="bg-blue-500 text-white p-2 rounded-lg mb-3 mt-5 w-full">
+              Check out
+            </button>
+          </Link>
 
           <p className="border-t p-2">Total Price: {totalPrice}:-</p>
         </div>

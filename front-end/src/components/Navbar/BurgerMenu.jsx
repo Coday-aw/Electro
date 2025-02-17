@@ -32,7 +32,7 @@ const BurgerMenu = () => {
   }, []);
 
   return (
-    <div className="md:hidden">
+    <div className="md:hidden block">
       <button onClick={openMenu}>
         <TiThMenu size={30} />
       </button>

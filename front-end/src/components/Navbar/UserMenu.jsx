@@ -42,7 +42,9 @@ const UserMenu = () => {
         >
           {token ? (
             <ul>
-              <li className="hover:bg-gray-100 p-2 cursor-pointer">Orders</li>
+              <li className="hover:bg-gray-100 p-2 cursor-pointer">
+                <Link to="/auth/orders">Orders</Link>
+              </li>
               <li
                 className="hover:bg-gray-100 p-2 cursor-pointer"
                 onClick={handleLogout}
@@ -51,7 +53,7 @@ const UserMenu = () => {
               </li>
             </ul>
           ) : (
-            <Link to="/auth/login" className="flex items-center p-2 text-xl">
+            <Link to="/login" className="flex items-center p-2 text-xl">
               Sign in <TbLogin2 size={25} />
             </Link>
           )}

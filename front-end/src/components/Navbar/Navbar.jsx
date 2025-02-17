@@ -22,8 +22,8 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between items-center md:px-5 px-2 py-4 border-b sticky top-0 bg-white z-50">
       <Logo />
-      <div className="items-center gap-10 md:flex hidden">
-        <ul className="flex space-x-4 justify-center items-center">
+      <div className="items-center gap-10 ">
+        <ul className=" hidden md:flex space-x-4 justify-center items-center">
           {links &&
             links.map((link, index) => (
               <Link
@@ -35,24 +35,24 @@ const Navbar = () => {
               </Link>
             ))}
         </ul>
-        <div className="flex gap-4">
-          <div>
-            <span className=" absolute top-4 right-20 bg-red-500 rounded-full text-white text-xs w-5 h-5 flex items-center justify-center">
-              {totalQuantity}
-            </span>
-            <BsCart2
-              className="relative cursor-pointer"
-              onClick={openCartModal}
-              size={25}
-            />
-            <Modal isOpen={isCartModalOpen} closeModal={closeCartModal}>
-              <Cart />
-            </Modal>
-          </div>
-          <UserMenu />
-        </div>
       </div>
-      <BurgerMenu />
+      <div className="flex gap-4">
+        <div>
+          <span className=" absolute top-3  right-24 md:top-3 md:right-16 bg-red-500 rounded-full text-white text-xs w-5 h-5 flex items-center justify-center">
+            {totalQuantity}
+          </span>
+          <BsCart2
+            className="relative cursor-pointer"
+            onClick={openCartModal}
+            size={25}
+          />
+          <Modal isOpen={isCartModalOpen} closeModal={closeCartModal}>
+            <Cart />
+          </Modal>
+        </div>
+        <UserMenu />
+        <BurgerMenu />
+      </div>
     </nav>
   );
 };

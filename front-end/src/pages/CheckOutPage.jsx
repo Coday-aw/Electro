@@ -1,5 +1,4 @@
 import { useAuth } from "../components/AuthContext";
-
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import {
@@ -9,7 +8,6 @@ import {
 import CartItem from "../components/CartItem";
 import toast, { Toaster } from "react-hot-toast";
 import CheckOutForm from "../components/CheckOutForm";
-import Orders from "../components/Orders";
 import { Link } from "react-router-dom";
 
 function CheckOutPage() {
@@ -23,10 +21,6 @@ function CheckOutPage() {
     e.preventDefault();
     if (cart.length === 0) {
       return toast.error("Your cart is empty");
-    }
-
-    if (!token) {
-      return toast.error("please log in first!");
     }
 
     try {

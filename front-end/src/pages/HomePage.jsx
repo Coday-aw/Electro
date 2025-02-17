@@ -7,7 +7,6 @@ function HomePage() {
     <div>
       <HeroSection />
       <SectionTwo />
-      {/* <SectionThree /> */}
       <BestSeller />
     </div>
   );

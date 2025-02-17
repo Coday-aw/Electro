@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Button from "./Button";
 
 const HeroSection = () => {
   return (
@@ -14,8 +13,10 @@ const HeroSection = () => {
         <p className="text-xl mt-2 font-bold mb-5">
           Get the best products at the best prices
         </p>
-        <Link to="/product">
-          <Button>Shop Now</Button>
+        <Link to="/products">
+          <button className="bg-yellow-500 border text-white font-bold p-2 rounded-lg hover:scale-110 ">
+            Shop Now
+          </button>
         </Link>
       </div>
     </div>

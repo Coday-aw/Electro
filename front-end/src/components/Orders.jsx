@@ -46,11 +46,9 @@ const Orders = () => {
         <p className="text-center mt-40 text-xl">No orders found</p>
       ) : (
         <div>
-          <p className="text-2xl font-medium text-center mt-40">
-            Order summary
-          </p>
+          <p className="text-2xl font-medium text-center mt-10">Your orders</p>
           {orders.map((order) => (
-            <div key={order._id} className=" p-4 mb-4 border-b">
+            <div key={order._id} className=" p-4 mb-4 border-b  border mt-10">
               <p className="font-bold mb-2">Order ID: {order._id}</p>
               {order.products.map((item) => (
                 <div key={item._id} className=" flex gap-2 mb-2">

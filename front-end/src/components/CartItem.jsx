@@ -3,7 +3,7 @@ import {
   addToCart,
   removeItem,
 } from "../store/features/shoppingCart/ShoppingCartSlice";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
 import { FaTrashAlt } from "react-icons/fa";
 
