@@ -2,6 +2,7 @@ import { FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -11,9 +12,13 @@ const Footer = () => {
         <div className="bg-gray-600 w-[2px] h-20"></div>
         <div className="flex flex-col">
           <div className="flex gap-2 font-bold">
-            <p>About</p>
+            <p>
+              <Link to="/aboutUs">About</Link>
+            </p>
             <p>Support</p>
-            <p>Contact</p>
+            <p>
+              <Link to="/contact">Contact</Link>
+            </p>
           </div>
           <p className="text-gray-500">
             &copy; 2025 Electro. All rights reserved{" "}

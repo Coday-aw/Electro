@@ -1,4 +1,4 @@
-import Orders from "../components/Orders";
+import Orders from "../components/CheckOut/Orders";
 
 function OrdersPage() {
   return <Orders />;

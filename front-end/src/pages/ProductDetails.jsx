@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/features/shoppingCart/ShoppingCartSlice";
 import toast, { Toaster } from "react-hot-toast";
-import ProductSlider from "../components/ProductSlider";
+import ProductSlider from "../components/Product/ProductSlider";
 function ProductDetails() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -38,12 +38,12 @@ function ProductDetails() {
   };
 
   return (
-    <div className="max-w-[1000px] mx-auto">
+    <div>
       <Toaster position="top-center" />
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
       {product && (
-        <div className=" flex  p-10 flex-col md:flex-row gap-10">
+        <div className=" flex flex-col mt-10 md:flex-row gap-10">
           <div className="flex-1">
             <img src={product.images[activeImg]} alt={product.name} />
             <div className="flex gap-2 justify-center">

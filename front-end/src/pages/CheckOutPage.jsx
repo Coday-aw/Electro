@@ -5,9 +5,9 @@ import {
   clearCart,
   LOAD_SAVED_CART,
 } from "../store/features/shoppingCart/ShoppingCartSlice";
-import CartItem from "../components/CartItem";
+import CartItem from "../components/CheckOut/CartItem";
 import toast, { Toaster } from "react-hot-toast";
-import CheckOutForm from "../components/CheckOutForm";
+import CheckOutForm from "../components/CheckOut/CheckOutForm";
 import { Link } from "react-router-dom";
 
 function CheckOutPage() {
@@ -76,7 +76,7 @@ function CheckOutPage() {
           <div>cart empty!</div>
         )
       ) : (
-        <div className="flex flex-col gap-5 p-20 md:flex-row shadow-lg border rounded-lg  mt-10  ">
+        <div className="flex flex-col justify-center items-center gap-10 p-20 md:flex-row shadow-lg border rounded-lg  mt-10  ">
           <div>
             <p className="font-bold text-2xl mb-2">Cart summary</p>
             {cart &&

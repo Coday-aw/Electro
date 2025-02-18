@@ -2,22 +2,27 @@ import Logo from "./Logo";
 import { links } from "../../lib/data";
 import BurgerMenu from "./BurgerMenu";
 import { Link } from "react-router-dom";
-import { useAuth } from "../AuthContext";
-import { useState } from "react";
-import Cart from "../Cart";
+import { useEffect, useState } from "react";
+import Cart from "../CheckOut/Cart";
 import Modal from "../Modal";
-
 import UserMenu from "./UserMenu";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BsCart2 } from "react-icons/bs";
+import { LOAD_SAVED_CART } from "../../store/features/shoppingCart/ShoppingCartSlice";
 
 const Navbar = () => {
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
-  const { token } = useAuth();
   const { totalQuantity } = useSelector((state) => state.shoppingCart);
-
+  const dispatch = useDispatch();
   const openCartModal = () => setIsCartModalOpen(true);
   const closeCartModal = () => setIsCartModalOpen(false);
+
+  useEffect(() => {
+    const getSavedCart = localStorage.getItem("cart");
+    if (getSavedCart) {
+      dispatch(LOAD_SAVED_CART(JSON.parse(getSavedCart)));
+    }
+  }, [dispatch]);
 
   return (
     <nav className="flex justify-between items-center md:px-5 px-2 py-4 border-b sticky top-0 bg-white z-50">
