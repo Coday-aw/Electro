@@ -8,7 +8,7 @@ const ProductCard = ({ product }) => {
       key={product._id}
     >
       <img
-        className="hover:scale-110 w-[200px] h-[200px] object-cover mx-auto"
+        className="hover:scale-110 w-[300px] h-[200px] object-fit"
         src={product.images[0]}
         alt={product.name}
       />
